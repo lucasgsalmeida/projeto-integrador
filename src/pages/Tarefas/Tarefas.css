@@ -1,0 +1,13 @@
+.geralTarefa {
+    display: flex;
+    flex-direction: column;
+}
+
+.btnNovoTarefa {
+    width: 150px;
+}
+
+.fs-1 {
+    display: inline-block; /* Permite ajustar a largura e adicionar padding */
+    width: 40%
+}

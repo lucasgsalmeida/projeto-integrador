@@ -5,4 +5,9 @@
     flex-direction: column;
     height: 100vw;
   }
+
+.d-flex.flex-column.flex-shrink-0.p-3.text-bg-dark {
+    height: 100%;
+
+}
   

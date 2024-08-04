@@ -1,0 +1,12 @@
+.date-wrapper {
+    cursor: pointer;
+  }
+  .date-wrapper input {
+    pointer-events: none; /* Desativa os eventos de ponteiro no campo de entrada para permitir que o clique ative o grupo inteiro */
+  }
+  .descricao-tarefa {
+    height: 900px; /* Aumenta a altura do campo de texto para a descrição */
+    background-color: white;
+    padding: 0;
+  }
+  

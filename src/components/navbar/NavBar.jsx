@@ -17,6 +17,7 @@ const NavBar = () => {
           <ComponentNavBar nome="Projetos" img={LogoBranca} route="/projetos" />
           <ComponentNavBar nome="Tarefas" img={LogoBranca} route="/tarefas" />
           <ComponentNavBar nome="Biblioteca" img={LogoBranca} route="/biblioteca" />
+          <ComponentNavBar nome="Configurações" img={LogoBranca} route="/cfg" />
         </ul>
         <hr />
         <div className="dropdown">
