@@ -1,0 +1,8 @@
+.geralNavBar {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Altera a altura para 100vh para ocupar a altura total da viewport */
+    width: 280px; /* Define uma largura fixa para a sidebar */
+}
