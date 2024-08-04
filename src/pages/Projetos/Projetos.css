@@ -1,11 +1,13 @@
 .geralProjetos {
     display: flex;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    justify-content: flex-start;
-    align-items: flex-start;
     flex-direction: column;
-    padding: 20px;
+}
+
+.btnNovoProjeto {
+    width: 150px;
+}
+
+.fs-1 {
+    display: inline-block; /* Permite ajustar a largura e adicionar padding */
+    width: 40%
 }

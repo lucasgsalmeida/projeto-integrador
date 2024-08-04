@@ -1,0 +1,13 @@
+/* Estilo base da tag <a> */
+.geralListProjetos {
+    text-decoration: none; /* Remove o sublinhado */
+    transition: background-color 0.3s ease, padding 0.3s ease; /* Adiciona transição suave para a cor de fundo e padding */
+}
+  
+  /* Estilo ao passar o mouse */
+  .geralListProjetos:hover {
+    background-color: rgb(255, 255, 255); /* Cor de fundo escurecida (ajuste conforme necessário) */
+    padding: 8px 16px; /* Ajuste o padding conforme necessário */
+
+  }
+  
