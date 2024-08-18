@@ -9,6 +9,7 @@ import './App.css';
 import NovoProjeto from './pages/Projetos/novoprojeto/NovoProjeto';
 import NovaTarefa from './pages/Tarefas/novatarefa/NovaTarefa';
 import Configuracoes from './pages/cfg/Configuracoes';
+import Equipe from './pages/equipe/Equipe';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/tarefas/new" element={<NovaTarefa />} />
             <Route path="/biblioteca" element={<Biblioteca />} />
             <Route path="/cfg" element={<Configuracoes/>}/>
+            <Route path="/equipe" element={<Equipe/>}/>
           </Routes>
         </div>
       </div>

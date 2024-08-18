@@ -10,15 +10,25 @@ const Tarefas = () => {
   const btnNovaTarefa = () => {
     navigate('/tarefas/new');
   };
+
+  const btnTipoTarefa = () => {
+    navigate('/tarefas/tipo');
+  };
  
   return (
     <div className="geralTarefa">
       <p className="fs-1">Tarefas</p>
 
+      <div className='botoesTarefas'>
+
       <button type="button" className="btn btn-primary btnNovoTarefa" onClick={btnNovaTarefa}>
         Nova Tarefa
       </button>
 
+      <button type="button" className="btn btn-primary btnNovoTarefa tiposTarefasBtn" onClick={btnTipoTarefa}>
+        Tipos de tarefa
+      </button>
+      </div>
       <br />
 
       <div class="container">

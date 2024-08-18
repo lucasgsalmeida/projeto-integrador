@@ -11,3 +11,7 @@
     display: inline-block; /* Permite ajustar a largura e adicionar padding */
     width: 40%
 }
+
+.tiposTarefasBtn {
+    margin-left: 20px;
+}
