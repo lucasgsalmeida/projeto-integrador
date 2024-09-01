@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { ContextUserClient } from "./ContextUsuarioEscritorio";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const getTokenInfoFromLocalStorage = (key) => {
   const itemStr = localStorage.getItem(key);
@@ -59,6 +60,9 @@ export const ContextLoginProvider = ({ children }) => {
     }
   };
 
+  const navigate = useNavigate(); // Use o hook de navegação aqui
+
+
   const loginApi = async (dadosLogin) => {
     try {
       const response = await axios.post("http://localhost:8080/usuario/login", {
@@ -79,9 +83,14 @@ export const ContextLoginProvider = ({ children }) => {
         localStorage.setItem("token", JSON.stringify({ token: data.token, expiration }));
         console.log(data.token);
         requestContextUserClient(data.token);
+        navigate('/'); // Redireciona imediatamente após o login
+        setTokenValido(true); // Atualiza o estado para indicar que o login foi bem-sucedido
+        return true;
       }
     } catch (error) {
       console.error("Erro no login:", error);
+      setTokenValido(false);
+      return false;
     }
   };
 

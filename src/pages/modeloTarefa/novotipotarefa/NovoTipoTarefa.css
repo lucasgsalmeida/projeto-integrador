@@ -1,0 +1,17 @@
+.form-control, .col-md-6, .form-select {
+    cursor: pointer;
+  }
+  
+  .date-wrapper {
+    cursor: pointer;
+    width: 180px;
+  }
+  
+  .date-wrapper input {
+    pointer-events: none;
+  }
+  
+  .btn-danger {
+    margin-top: 5px;
+  }
+  

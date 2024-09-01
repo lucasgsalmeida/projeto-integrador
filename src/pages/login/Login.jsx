@@ -1,59 +1,51 @@
-import React, { useState, useContext } from "react";
-import { ContextLogin } from "../../context/LoginContext.jsx";
-import LogoBranca from './../../imgs/logo-branca.png';
+import React, { useState, useContext, useEffect } from 'react';
+import { ContextLogin } from '../../context/LoginContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const { loginApi } = useContext(ContextLogin); // Acesse a função de login do contexto
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const { loginApi, isTokenValido } = useContext(ContextLogin); // Função de login do contexto
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const navigate = useNavigate(); // Hook para redirecionamento
 
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Impede o comportamento padrão do formulário
-
-    try {
-      await loginApi({ email, senha }); // Chama a função de login do contexto
-    } catch (error) {
-      console.error("Erro ao fazer login:", error);
-    }
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    await loginApi({ email, senha });
   };
+
+  useEffect(() => {
+    if (isTokenValido) {
+      navigate('/'); // Redireciona para a página principal após o login
+    }
+  }, [isTokenValido, navigate]); // O useEffect vai disparar sempre que isTokenValido mudar
 
   return (
     <main className="form-signin w-100 m-auto">
-      <form onSubmit={handleSubmit}>
-        <img
-          className="mb-4"
-          src={LogoBranca}
-          alt=""
-          width={72}
-          height={57}
-        />
+      <form onSubmit={handleLogin}>
         <h1 className="h3 mb-3 fw-normal">Por favor, identifique-se</h1>
         <div className="form-floating">
           <input
             type="text"
             className="form-control"
             id="floatingInput"
-            placeholder="Usuário"
+            placeholder="name@example.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)} // Atualiza o estado do e-mail
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <label htmlFor="floatingInput">Usuário</label>
+          <label htmlFor="floatingInput">Email</label>
         </div>
         <div className="form-floating">
           <input
             type="password"
             className="form-control"
             id="floatingPassword"
-            placeholder="Senha"
+            placeholder="Password"
             value={senha}
-            onChange={(e) => setSenha(e.target.value)} // Atualiza o estado da senha
+            onChange={(e) => setSenha(e.target.value)}
           />
           <label htmlFor="floatingPassword">Senha</label>
         </div>
-        <button className="btn btn-primary w-100 py-2" type="submit">
-          Fazer Login
-        </button>
-        <p className="mt-5 mb-3 text-body-secondary">© 2024</p>
+        <button className="w-100 btn btn-lg btn-primary" type="submit">Fazer login</button>
       </form>
     </main>
   );

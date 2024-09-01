@@ -1,17 +1,13 @@
-.geralTarefa {
+.geralDepartamentos {
     display: flex;
     flex-direction: column;
 }
 
-.btnNovaTarefa {
-    width: 150px;
+.btnNovoDepartamento {
+    width: 190px;
 }
 
 .fs-1 {
     display: inline-block; /* Permite ajustar a largura e adicionar padding */
     width: 40%
-}
-
-.tiposTarefasBtn {
-    margin-left: 20px;
 }

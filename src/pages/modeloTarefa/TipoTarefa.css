@@ -1,17 +1,14 @@
-.geralTarefa {
+.geralTipoTarefas {
     display: flex;
     flex-direction: column;
-}
-
-.btnNovaTarefa {
-    width: 150px;
-}
-
-.fs-1 {
+  }
+  
+  .btnNovoTipoTarefa {
+    width: 180px;
+  }
+  
+  .fs-1 {
     display: inline-block; /* Permite ajustar a largura e adicionar padding */
-    width: 40%
-}
-
-.tiposTarefasBtn {
-    margin-left: 20px;
-}
+    width: 40%;
+  }
+  

@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import './ListTarefas.css';
+import './ListDepartamentos.css';
 
-const ListTarefas = () => {
-  const [tarefas, setTarefas] = useState([]);
+const ListDepartamentos = () => {
+  const [departamentos, setDepartamentos] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    const fetchTarefas = async () => {
+    const fetchDepartamentos = async () => {
       try {
         const tokenData = JSON.parse(localStorage.getItem('token'));
         const token = tokenData.token; // Extraindo o token do objeto JSON
-        const response = await axios.get('http://localhost:8080/tarefa/get/all', {
+        const response = await axios.get('http://localhost:8080/departamento/get/all', {
           headers: {
             Authorization: `Bearer ${token}`
           }
         });
-        setTarefas(response.data);
-        localStorage.setItem('tarefas', JSON.stringify(response.data));
+        const departamentosData = response.data;
+        setDepartamentos(departamentosData);
+        localStorage.setItem('departamentos', JSON.stringify(departamentosData));
       } catch (error) {
-        console.error('Erro ao buscar tarefas:', error);
+        console.error('Erro ao buscar departamentos:', error);
       }
     };
 
@@ -36,15 +37,16 @@ const ListTarefas = () => {
               Authorization: `Bearer ${token}`
             }
           });
-          setUsuarios(response.data);
-          localStorage.setItem('usuarios', JSON.stringify(response.data)); // Salva a lista de usuários no localStorage
+          const usuariosData = response.data;
+          setUsuarios(usuariosData);
+          localStorage.setItem('usuarios', JSON.stringify(usuariosData)); // Salva a lista de usuários no localStorage
         }
       } catch (error) {
         console.error('Erro ao buscar usuários:', error);
       }
     };
 
-    fetchTarefas();
+    fetchDepartamentos();
     fetchUsuarios();
   }, []); // Dependências vazias para garantir que o fetch seja chamado uma vez
 
@@ -55,22 +57,22 @@ const ListTarefas = () => {
 
   return (
     <div className="list-group">
-      {tarefas.length > 0 ? (
-        tarefas.map(tarefa => (
-          <a href={`/editar/${tarefa.id}`} className="list-group-item list-group-item-action geralListTarefas" key={tarefa.id}>
+      {departamentos.length > 0 ? (
+        departamentos.map(departamento => (
+          <a href={`/editar/${departamento.id}`} className="list-group-item list-group-item-action geralListDepartamentos" key={departamento.id}>
             <div className="d-flex w-100 justify-content-between">
-              <h5 className="mb-1">{tarefa.descricao}</h5>
-              <small className="text-body-secondary">#{tarefa.id}</small>
+              <h5 className="mb-1">{departamento.nome}</h5>
+              <small className="text-body-secondary">#{departamento.id}</small>
             </div>
-            <small className="text-body-secondary">Responsável: {getNomeResponsavel(tarefa.idUsuario)}</small>
+            <small className="text-body-secondary">Responsável: {getNomeResponsavel(departamento.idUsuario)}</small>
             <br />
           </a>
         ))
       ) : (
-        <p>Nenhuma tarefa encontrada.</p>
+        <p>Nenhum departamento encontrado.</p>
       )}
     </div>
   );
 };
 
-export default ListTarefas;
+export default ListDepartamentos;

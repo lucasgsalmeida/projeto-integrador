@@ -14,11 +14,13 @@ const NavBar = () => {
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <ComponentNavBar nome="Home" img={LogoBranca} route="/" />
+          <ComponentNavBar nome="Departamentos" img={LogoBranca} route="/departamentos" />
           <ComponentNavBar nome="Projetos" img={LogoBranca} route="/projetos" />
           <ComponentNavBar nome="Tarefas" img={LogoBranca} route="/tarefas" />
-          <ComponentNavBar nome="Biblioteca" img={LogoBranca} route="/biblioteca" />
+          {/*<ComponentNavBar nome="Biblioteca" img={LogoBranca} route="/biblioteca" />
           <ComponentNavBar nome="Configurações" img={LogoBranca} route="/cfg" />
-          <ComponentNavBar nome="Equipe" img={LogoBranca} route="/equipe" />
+          <ComponentNavBar nome="Equipe" img={LogoBranca} route="/equipe" />*/}
+          <ComponentNavBar nome="Tipo de tarefa" img={LogoBranca} route="/tipo-tarefa" />
         </ul>
         <hr />
         <div className="dropdown">
